@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-import { motion, useMotionValue, useAnimationFrame, useTransform } from 'motion/react';
+import { motion, useMotionValue, useAnimationFrame, useTransform } from 'framer-motion';
 
 interface ShinyTextProps {
   text: string;
@@ -128,6 +128,7 @@ const ShinyText: React.FC<ShinyTextProps> = ({
   );
 };
 
+ShinyText.displayName = 'ShinyText';
 export default ShinyText;
 //   plugins: [],
 // };
