@@ -9,18 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        obsidian: "#0A0A0A",
-        charcoal: "#111111",
-        graphite: "#1a1a1a",
-        smoke: "#242424",
-        ash: "#333333",
-        platinum: "#c8c0b4",
+        obsidian: "rgb(var(--color-obsidian) / <alpha-value>)",
+        charcoal: "rgb(var(--color-charcoal) / <alpha-value>)",
+        graphite: "rgb(var(--color-graphite) / <alpha-value>)",
+        smoke: "rgb(var(--color-smoke) / <alpha-value>)",
+        ash: "rgb(var(--color-ash) / <alpha-value>)",
+        platinum: "rgb(var(--color-platinum) / <alpha-value>)",
         gold: {
-          DEFAULT: "#b8966a",
-          light: "#d4aa7a",
+          DEFAULT: "rgb(var(--color-gold) / <alpha-value>)",
+          light: "rgb(var(--color-gold-light) / <alpha-value>)",
         },
-        ivory: "#f5f0e8",
-        cream: "#ede8df",
+        ivory: "rgb(var(--color-ivory) / <alpha-value>)",
+        cream: "rgb(var(--color-cream) / <alpha-value>)",
         // Shadcn UI colors
         border: "var(--border)",
         input: "var(--input)",

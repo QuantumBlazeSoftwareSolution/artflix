@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroller from "@/components/SmoothScroller";
 import Cursor from "@/components/Cursor";
 import TargetCursor from "@/components/TargetCursor";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const cormorant = Cormorant_Garamond({ 
   subsets: ["latin"], 
@@ -29,13 +30,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${cormorant.variable} ${montserrat.variable} font-sans antialiased`}>
-        <SmoothScroller>
-          <Cursor />
-          <TargetCursor />
-          {children}
-        </SmoothScroller>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SmoothScroller>
+            <Cursor />
+            <TargetCursor />
+            {children}
+          </SmoothScroller>
+        </ThemeProvider>
       </body>
     </html>
   );
