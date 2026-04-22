@@ -139,7 +139,7 @@ export default function Catalogue() {
               key={idx}
               href={`/products/${item.id}`}
               className={clsx(
-                "break-inside-avoid relative overflow-hidden group block cursor-none reveal-cat bg-obsidian",
+                "break-inside-avoid relative overflow-hidden group block cursor-none reveal-cat bg-obsidian cursor-target",
                 item.tall ? "aspect-[2/3]" : "aspect-[4/5]",
               )}
             >

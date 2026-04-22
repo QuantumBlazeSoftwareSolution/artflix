@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import { gsap } from 'gsap';
 
@@ -30,9 +31,9 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
     if (typeof window === 'undefined') return false;
     const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const isSmallScreen = window.innerWidth <= 768;
-    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+    const userAgent = navigator.userAgent || navigator.vendor || (window as { opera?: string }).opera;
     const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
-    const isMobileUserAgent = mobileRegex.test(userAgent.toLowerCase());
+    const isMobileUserAgent = mobileRegex.test((userAgent || '').toLowerCase());
     return (hasTouchScreen && isSmallScreen) || isMobileUserAgent;
   }, []);
 
@@ -198,6 +199,9 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
         });
       });
 
+      // Show the cursor when over a target
+      gsap.to(cursorRef.current, { opacity: 1, duration: 0.3 });
+
       const leaveHandler = () => {
         gsap.ticker.remove(tickerFnRef.current!);
         isActiveRef.current = false;
@@ -239,6 +243,11 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
           resumeTimeout = null;
         }, 50);
         cleanupTarget(target);
+        
+        // Hide the cursor when leaving a target
+        if (cursorRef.current) {
+          gsap.to(cursorRef.current, { opacity: 0, duration: 0.2 });
+        }
       };
       currentLeaveHandler = leaveHandler;
       target.addEventListener('mouseleave', leaveHandler);
@@ -246,24 +255,25 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
 
     window.addEventListener('mouseover', enterHandler as EventListener);
 
-    return () => {
-      if (tickerFnRef.current) {
-        gsap.ticker.remove(tickerFnRef.current);
-      }
-      window.removeEventListener('mousemove', moveHandler);
-      window.removeEventListener('mouseover', enterHandler as EventListener);
-      window.removeEventListener('scroll', scrollHandler);
-      window.removeEventListener('mousedown', mouseDownHandler);
-      window.removeEventListener('mouseup', mouseUpHandler);
-      if (activeTarget) {
-        cleanupTarget(activeTarget);
-      }
-      spinTl.current?.kill();
-      document.body.style.cursor = originalCursor;
-      isActiveRef.current = false;
-      targetCornerPositionsRef.current = null;
-      activeStrengthRef.current.current = 0;
-    };
+      const currentActiveStrength = activeStrengthRef.current;
+      return () => {
+        if (tickerFnRef.current) {
+          gsap.ticker.remove(tickerFnRef.current);
+        }
+        window.removeEventListener('mousemove', moveHandler);
+        window.removeEventListener('mouseover', enterHandler as EventListener);
+        window.removeEventListener('scroll', scrollHandler);
+        window.removeEventListener('mousedown', mouseDownHandler);
+        window.removeEventListener('mouseup', mouseUpHandler);
+        if (activeTarget) {
+          cleanupTarget(activeTarget);
+        }
+        spinTl.current?.kill();
+        document.body.style.cursor = originalCursor;
+        isActiveRef.current = false;
+        targetCornerPositionsRef.current = null;
+        currentActiveStrength.current = 0;
+      };
   }, [targetSelector, spinDuration, moveCursor, constants, hideDefaultCursor, isMobile, hoverDuration, parallaxOn]);
 
   useEffect(() => {
@@ -283,7 +293,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-[9999]"
+      className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-[9999] opacity-0"
       style={{ willChange: 'transform' }}
     >
       <div
@@ -311,4 +321,5 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   );
 };
 
+TargetCursor.displayName = 'TargetCursor';
 export default TargetCursor;

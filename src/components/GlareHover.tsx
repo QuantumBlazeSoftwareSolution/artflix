@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef } from 'react';
 
 interface GlareHoverProps {
@@ -18,11 +19,11 @@ interface GlareHoverProps {
 }
 
 const GlareHover: React.FC<GlareHoverProps> = ({
-  width = '500px',
-  height = '500px',
-  background = '#000',
-  borderRadius = '10px',
-  borderColor = '#333',
+  width = '100%',
+  height = '100%',
+  background = 'transparent',
+  borderRadius = '0',
+  borderColor = 'transparent',
   children,
   glareColor = '#ffffff',
   glareOpacity = 0.5,
@@ -105,4 +106,5 @@ const GlareHover: React.FC<GlareHoverProps> = ({
   );
 };
 
+GlareHover.displayName = 'GlareHover';
 export default GlareHover;

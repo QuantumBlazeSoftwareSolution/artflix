@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MagneticButton from "../MagneticButton";
+import LightRays from "../LightRays";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -70,6 +71,15 @@ export default function Hero() {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat"
         }}
+      />
+      {/* Light Rays FX */}
+      <LightRays 
+        raysColor="#b8966a" 
+        raysSpeed={0.8} 
+        lightSpread={1.2} 
+        rayLength={1.5}
+        mouseInfluence={0.08}
+        className="absolute inset-0 z-[5] opacity-60"
       />
       {/* Gradient Overlay — lighter so bg image shows through */}
       <div className="absolute inset-0 z-10 bg-gradient-to-br from-obsidian/40 via-obsidian/10 to-obsidian/30" />

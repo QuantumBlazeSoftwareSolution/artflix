@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import GlareHover from "../GlareHover";
 
 export default function Services() {
   const blockRef = useRef<HTMLDivElement>(null);
@@ -55,37 +56,51 @@ export default function Services() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-[2px] max-w-[1400px] mx-auto">
-        <div className="relative overflow-hidden aspect-[3/2] cursor-none group reveal-card">
-          <div 
-            className="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-[0.9s] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-100 brightness-50 group-hover:brightness-75"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1615209853186-e4bd66602508?q=80&w=1200&auto=format&fit=crop')" }}
-          />
-          <div className="absolute inset-0 flex flex-col justify-end p-12 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent">
-            <div className="font-serif text-[80px] font-light text-gold/15 leading-none mb-auto self-end">01</div>
-            <h3 className="font-serif text-[32px] font-light text-ivory mb-3">Digital Photo Editing</h3>
-            <p className="text-[11px] tracking-[0.15em] uppercase text-gold mb-6">Retouching · Manipulation · Enhancement</p>
-            <Link href="/catalogue" className="inline-flex items-center gap-3 text-[10px] tracking-[0.22em] uppercase text-platinum transition-colors duration-300 group-hover:text-ivory w-fit">
-              View Process
-              <span className="inline-block w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-8" />
-            </Link>
+        <GlareHover 
+          glareColor="#f0d890" 
+          glareOpacity={0.4} 
+          glareSize={200}
+          className="reveal-card"
+        >
+          <div className="relative w-full h-full overflow-hidden aspect-[3/2] cursor-none group">
+            <div 
+              className="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-[0.9s] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-100 brightness-50 group-hover:brightness-75"
+              style={{ backgroundImage: "url('https://images.unsplash.com/photo-1615209853186-e4bd66602508?q=80&w=1200&auto=format&fit=crop')" }}
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-12 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent">
+              <div className="font-serif text-[80px] font-light text-gold/15 leading-none mb-auto self-end">01</div>
+              <h3 className="font-serif text-[32px] font-light text-ivory mb-3">Digital Photo Editing</h3>
+              <p className="text-[11px] tracking-[0.15em] uppercase text-gold mb-6">Retouching · Manipulation · Enhancement</p>
+              <Link href="/catalogue" className="inline-flex items-center gap-3 text-[10px] tracking-[0.22em] uppercase text-platinum transition-colors duration-300 group-hover:text-ivory w-fit">
+                View Process
+                <span className="inline-block w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-8" />
+              </Link>
+            </div>
           </div>
-        </div>
+        </GlareHover>
 
-        <div className="relative overflow-hidden aspect-[3/2] cursor-none group reveal-card">
-          <div 
-            className="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-[0.9s] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-100 brightness-50 group-hover:brightness-75"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200&auto=format&fit=crop')" }}
-          />
-          <div className="absolute inset-0 flex flex-col justify-end p-12 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent">
-            <div className="font-serif text-[80px] font-light text-gold/15 leading-none mb-auto self-end">02</div>
-            <h3 className="font-serif text-[32px] font-light text-ivory mb-3">Custom Print & Laminate</h3>
-            <p className="text-[11px] tracking-[0.15em] uppercase text-gold mb-6">Frameless wall art · Durable laminations · Polaroids</p>
-            <Link href="/catalogue" className="inline-flex items-center gap-3 text-[10px] tracking-[0.22em] uppercase text-platinum transition-colors duration-300 group-hover:text-ivory w-fit">
-              Explore Products
-              <span className="inline-block w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-8" />
-            </Link>
+        <GlareHover 
+          glareColor="#f0d890" 
+          glareOpacity={0.4} 
+          glareSize={200}
+          className="reveal-card"
+        >
+          <div className="relative w-full h-full overflow-hidden aspect-[3/2] cursor-none group">
+            <div 
+              className="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-[0.9s] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-100 brightness-50 group-hover:brightness-75"
+              style={{ backgroundImage: "url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200&auto=format&fit=crop')" }}
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-12 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent">
+              <div className="font-serif text-[80px] font-light text-gold/15 leading-none mb-auto self-end">02</div>
+              <h3 className="font-serif text-[32px] font-light text-ivory mb-3">Custom Print & Laminate</h3>
+              <p className="text-[11px] tracking-[0.15em] uppercase text-gold mb-6">Frameless wall art · Durable laminations · Polaroids</p>
+              <Link href="/catalogue" className="inline-flex items-center gap-3 text-[10px] tracking-[0.22em] uppercase text-platinum transition-colors duration-300 group-hover:text-ivory w-fit">
+                Explore Products
+                <span className="inline-block w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-8" />
+              </Link>
+            </div>
           </div>
-        </div>
+        </GlareHover>
       </div>
     </section>
   );

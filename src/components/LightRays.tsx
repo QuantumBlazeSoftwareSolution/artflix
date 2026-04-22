@@ -1,3 +1,4 @@
+"use client";
 import { useRef, useEffect, useState } from 'react';
 import { Renderer, Program, Triangle, Mesh } from 'ogl';
 
@@ -446,9 +447,10 @@ void main() {
   return (
     <div
       ref={containerRef}
-      className={`w-full h-full pointer-events-none z-[3] overflow-hidden relative ${className}`.trim()}
+      className={`w-full h-full pointer-events-none z-[3] overflow-hidden ${className}`.trim()}
     />
   );
 };
 
+LightRays.displayName = 'LightRays';
 export default LightRays;

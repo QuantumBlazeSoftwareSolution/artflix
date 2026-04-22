@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 export default function Cursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isTargeting, setIsTargeting] = useState(false);
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
@@ -18,6 +19,13 @@ export default function Cursor() {
       } else {
         setIsHovered(false);
       }
+
+      // Check if we are over a TargetCursor sensitive area
+      if (target.closest(".cursor-target")) {
+        setIsTargeting(true);
+      } else {
+        setIsTargeting(false);
+      }
     };
 
     window.addEventListener("mousemove", updateMousePosition);
@@ -29,7 +37,13 @@ export default function Cursor() {
     };
   }, []);
 
-  if (typeof navigator !== "undefined" && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) return null;
+  if (
+    typeof navigator !== "undefined" &&
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    )
+  )
+    return null;
 
   return (
     <>
@@ -38,6 +52,7 @@ export default function Cursor() {
         animate={{
           x: mousePosition.x - 5,
           y: mousePosition.y - 5,
+          opacity: isTargeting ? 0 : 1,
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.1 }}
       />
@@ -47,7 +62,10 @@ export default function Cursor() {
           x: mousePosition.x - 18,
           y: mousePosition.y - 18,
           scale: isHovered ? 2.2 : 1,
-          borderColor: isHovered ? "rgba(184,150,106,0.7)" : "rgba(184,150,106,0.4)",
+          borderColor: isHovered
+            ? "rgba(184,150,106,0.7)"
+            : "rgba(184,150,106,0.4)",
+          opacity: isTargeting ? 0 : 1,
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.15 }}
       />

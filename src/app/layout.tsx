@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import SmoothScroller from "@/components/SmoothScroller";
 import Cursor from "@/components/Cursor";
+import TargetCursor from "@/components/TargetCursor";
 
 const cormorant = Cormorant_Garamond({ 
   subsets: ["latin"], 
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className={`${cormorant.variable} ${montserrat.variable} font-sans antialiased`}>
         <SmoothScroller>
           <Cursor />
+          <TargetCursor />
           {children}
         </SmoothScroller>
       </body>
