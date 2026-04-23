@@ -227,18 +227,59 @@ const PhotoPage = React.forwardRef<HTMLDivElement, { img: string; caption: strin
 );
 PhotoPage.displayName = "PhotoPage";
 
-// Back cover (plain leather)
+// Back cover (with quote and contact details)
 const BackCover = React.forwardRef<HTMLDivElement, Record<string, never>>((props, ref) => {
   return (
     <div
       ref={ref}
-      className="page w-full h-full"
+      className="page w-full h-full flex flex-col items-center justify-center relative overflow-hidden select-none p-10 text-center"
       style={{
         background:
           "linear-gradient(145deg, #2e1407 0%, #5c2e10 40%, #3a1a08 100%)",
       }}
     >
       <div className="absolute inset-2" style={{ border: "1px solid rgba(212,175,85,0.25)" }} />
+      <div className="absolute inset-4" style={{ border: "1px solid rgba(212,175,85,0.1)" }} />
+      
+      {/* Floral background texture matching front cover */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='30' stroke='%23d4af55' stroke-width='0.5' fill='none'/%3E%3Ccircle cx='40' cy='40' r='18' stroke='%23d4af55' stroke-width='0.5' fill='none'/%3E%3Cpath d='M40 10 Q52 40 40 70 Q28 40 40 10Z' stroke='%23d4af55' stroke-width='0.5' fill='none'/%3E%3Cpath d='M10 40 Q40 52 70 40 Q40 28 10 40Z' stroke='%23d4af55' stroke-width='0.5' fill='none'/%3E%3C/svg%3E")`,
+          backgroundSize: "80px 80px",
+        }}
+      />
+
+      <div className="relative z-10 flex flex-col items-center justify-center h-full pt-10">
+        {/* Star Icon */}
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="mb-6 opacity-60">
+          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#d4af55" />
+        </svg>
+
+        {/* Inspirational Quote */}
+        <p 
+          className="font-serif italic text-lg leading-relaxed mb-10 max-w-[85%]"
+          style={{ color: "#d4af55", opacity: 0.9 }}
+        >
+          "Photography is an austere and blazing poetry of the real."
+        </p>
+
+        <div className="w-16 h-[1px] mb-10" style={{ background: "rgba(212,175,85,0.3)" }} />
+
+        {/* Contact Details */}
+        <div className="flex flex-col gap-4 text-[9px] tracking-[0.25em] uppercase" style={{ color: "#d4af55", opacity: 0.7 }}>
+          <p>hello@artflix.studio</p>
+          <p>+94 77 123 4567</p>
+          <p>Colombo, Sri Lanka</p>
+        </div>
+
+        {/* Bottom Logo Text */}
+        <div className="absolute bottom-4 w-full text-center">
+          <h3 className="font-serif text-xl tracking-[0.2em] uppercase" style={{ color: "#f0d890", opacity: 0.9 }}>
+            ART<span style={{ color: "#d4af55", fontStyle: "italic" }}>FLIX</span>
+          </h3>
+        </div>
+      </div>
     </div>
   );
 });
