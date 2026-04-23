@@ -66,7 +66,7 @@ const CoverPage = React.forwardRef<HTMLDivElement, Record<string, never>>((props
   return (
     <div
       ref={ref}
-      className="page w-full h-full flex flex-col items-center justify-center relative overflow-hidden select-none"
+      className="page w-full h-full flex flex-col items-center justify-center relative overflow-hidden select-none bg-obsidian"
       style={{
         background:
           "linear-gradient(145deg, #2e1407 0%, #5c2e10 30%, #7a3d18 50%, #5c2e10 70%, #2e1407 100%)",
@@ -232,7 +232,7 @@ const BackCover = React.forwardRef<HTMLDivElement, Record<string, never>>((props
   return (
     <div
       ref={ref}
-      className="page w-full h-full flex flex-col items-center justify-center relative overflow-hidden select-none p-10 text-center"
+      className="page w-full h-full flex flex-col items-center justify-center relative overflow-hidden select-none p-10 text-center bg-obsidian"
       style={{
         background:
           "linear-gradient(145deg, #2e1407 0%, #5c2e10 40%, #3a1a08 100%)",
@@ -357,7 +357,7 @@ export default function AlbumView() {
       {/* Book */}
       <div className="album-book-wrapper flex flex-col items-center gap-10 overflow-hidden px-4 md:px-0">
         <div
-          className="book-centering-container w-full max-w-[960px] mx-auto"
+          className="book-centering-container w-full max-w-[960px] mx-auto py-10"
           style={{
             filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.85))",
           }}
