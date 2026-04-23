@@ -11,9 +11,9 @@ export default function Home() {
     <main className="w-full bg-obsidian selection:bg-gold/30 selection:text-ivory relative z-0">
       <Navbar />
       <Hero />
+      <FeaturedProduct />
       <ArtisanTouch />
       <Services />
-      <FeaturedProduct />
       <AlbumView />
       <Footer />
     </main>
