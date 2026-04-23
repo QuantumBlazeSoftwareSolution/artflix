@@ -261,7 +261,7 @@ const BackCover = React.forwardRef<HTMLDivElement, Record<string, never>>((props
           className="font-serif italic text-lg leading-relaxed mb-10 max-w-[85%]"
           style={{ color: "#d4af55", opacity: 0.9 }}
         >
-          "Photography is an austere and blazing poetry of the real."
+          &quot;Photography is an austere and blazing poetry of the real.&quot;
         </p>
 
         <div className="w-16 h-[1px] mb-10" style={{ background: "rgba(212,175,85,0.3)" }} />
