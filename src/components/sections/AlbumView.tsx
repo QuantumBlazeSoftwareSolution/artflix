@@ -512,8 +512,6 @@ export default function AlbumView() {
               </div>
             </div>
           ))}
-          {/* End spacer */}
-          <div className="flex-[0_0_6%] min-w-[1.5rem]" />
         </div>
         
         <div className="mt-12 text-center">
