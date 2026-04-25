@@ -10,9 +10,9 @@ export default function Footer() {
           <div>
             <div className="font-serif text-4xl text-ivory font-light tracking-[0.2em] mb-6">ARTFLICS</div>
             <div className="flex flex-col gap-2 text-[11px] tracking-[0.15em] uppercase text-platinum/60">
-              <p>📍 Gampaha, Sri Lanka</p>
-              <p>📞 +94 72 964 4800</p>
-              <p>✉️ hello@artflics.studio</p>
+              <p>📍 Urapola, Sri Lanka</p>
+              <p>📞 072 964 4800</p>
+              <p>✉️ artflics1@gmail.com</p>
             </div>
           </div>
           <ul className="flex flex-wrap gap-10 list-none m-0 p-0 md:pt-2">
@@ -37,7 +37,7 @@ export default function Footer() {
             {["Facebook", "Instagram", "WhatsApp"].map((social) => (
               <a
                 key={social}
-                href={social === "WhatsApp" ? "https://wa.me/94729644800" : "#"}
+                href={social === "WhatsApp" ? "https://wa.me/94729644800" : social === "Facebook" ? "https://web.facebook.com/profile.php?id=100085865697339" : "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[10px] tracking-[0.18em] uppercase text-platinum/30 transition-colors duration-300 hover:text-gold magnetic"

@@ -280,9 +280,9 @@ const BackCover = React.forwardRef<HTMLDivElement, Record<string, never>>((props
           className="flex flex-col gap-4 text-[9px] tracking-[0.25em] uppercase"
           style={{ color: "#d4af55", opacity: 0.7 }}
         >
-          <p>hello@artflics.studio</p>
-          <p>+94 77 123 4567</p>
-          <p>Colombo, Sri Lanka</p>
+          <p>artflics1@gmail.com</p>
+          <p>072 964 4800</p>
+          <p>Urapola, Sri Lanka</p>
         </div>
 
         {/* Bottom Logo Text */}

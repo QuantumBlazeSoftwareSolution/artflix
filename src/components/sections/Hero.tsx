@@ -32,7 +32,7 @@ const SocialIcons = () => (
     </a>
 
     <a
-      href="https://www.facebook.com/profile.php?id=100085865697339"
+      href="https://web.facebook.com/profile.php?id=100085865697339"
       target="_blank"
       rel="noopener noreferrer"
       className="group p-2 transition-all duration-300 hover:scale-125"
