@@ -44,8 +44,10 @@ export default function FeaturedProduct() {
 
         {/* Right: Product Details */}
         <div className="flex flex-col">
-          <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-gold mb-4">
-            ARTFLICS EXCLUSIVE
+          <span className="text-[10px] font-medium tracking-[0.3em] uppercase mb-4"
+            style={{ background: 'linear-gradient(90deg, #064feb, #f810bc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+          >
+            Digital Colour Lab
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-ivory font-light leading-tight mb-4">
             Premium Frameless <br /> Wall Art <span className="text-3xl">📸✨</span>
