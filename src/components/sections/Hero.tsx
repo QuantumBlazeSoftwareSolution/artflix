@@ -158,8 +158,10 @@ export default function Hero() {
         mouseInfluence={0.08}
         className="absolute inset-0 z-[5] opacity-60"
       />
-      {/* Gradient Overlay — lighter so bg image shows through */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-br from-obsidian/40 via-obsidian/10 to-obsidian/30" />
+      {/* Dark Overlay for better text readability */}
+      <div className="absolute inset-0 z-10 bg-obsidian/60" />
+      {/* Gradient Overlay — subtle depth */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-obsidian via-transparent to-obsidian/40" />
 
       {/* Content */}
       <div ref={textContentRef} className="relative z-20 text-center max-w-[900px] px-10">
